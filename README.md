@@ -1,4 +1,4 @@
-# YouTube Highlights Agent: Your AI Video Scout
+# ▶ YouTube Highlights Agent: Your AI Video Scout
 
 [![Python Version](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Author](https://img.shields.io/badge/Author-Giulio%20Salierno-blue)](mailto:giuliosalierno@google.com)
@@ -65,14 +65,13 @@ The agent uses a sequential architecture, where each agent in the chain performs
         ```
         YOUTUBE_API_KEY=your_api_key_here
         ```
-    *   You can obtain a YouTube API key from the [Google Cloud Console](https://console.cloud.google.com/apis/credentials):
-    * 1.  Go to the [Google Cloud Console](https://console.cloud.google.com/).
-    * 2.  Create a new project or select an existing one.
-    * 3.  In the navigation menu, go to **APIs & Services > Library**.
-    * 4.  Search for "YouTube Data API v3" and enable it for your project.
-    * 5.  In the navigation menu, go to **APIs & Services > Credentials**.
-    * 6.  Click on **Create Credentials** and select **API key**.
-    * 7.  Copy the generated API key and paste it into your `.env` file.
+      You can obtain a YouTube API key from the [Google Cloud Console](https://console.cloud.google.com/apis/credentials):
+    *   Create a new project or select an existing one.
+    *   In the navigation menu, go to **APIs & Services > Library**.
+    *   Search for "YouTube Data API v3" and enable it for your project.
+    *   In the navigation menu, go to **APIs & Services > Credentials**.
+    *   Click on **Create Credentials** and select **API key**.
+    *   Copy the generated API key and paste it into your `.env` file.
     > **Important:** Keep your API key secret and do not share it with anyone.
 
 3.  **Install dependencies:**
