@@ -6,7 +6,7 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
-def search_youtube(query: str) -> list:
+def youtube_search(query: str) -> list:
     if not YOUTUBE_API_KEY:
         raise RuntimeError("YOUTUBE_API_KEY not set.")
     youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=YOUTUBE_API_KEY)
@@ -25,8 +25,3 @@ def search_youtube(query: str) -> list:
         }
         for item in response.get('items', [])
     ]
-
-
-def convert_mmss_to_seconds(mmss: str) -> int:
-    minutes, seconds = map(int, mmss.split(':'))
-    return minutes * 60 + seconds
