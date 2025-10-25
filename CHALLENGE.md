@@ -44,7 +44,7 @@ The YouTube Highlights Agent operates as a sequential, tool-using AI agent. Its 
 *   **Tool (`FunctionTool`):** The `youtube_search` function is the primary tool. It abstracts the complexity of making API calls to the YouTube Data API.
 *   **APIs:**
     *   **YouTube Data API v3:** Provides the underlying search functionality.
-    *   **Gemini API (Vertex AI):** Provides the LLM and multimodal models (`gemini-pro-vision`, `gemini-flash`) that power the reasoning and analysis capabilities of the sub-agents.
+    *   **Gemini API (Vertex AI):** Provides the LLM and multimodal models (`gemini-2.5-pro`, `gemini-2.5-flash`) that power the reasoning and analysis capabilities of the sub-agents.
 
 ### Data Flow:
 The flow is a continuous loop:
