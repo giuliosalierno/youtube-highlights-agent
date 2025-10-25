@@ -42,7 +42,7 @@ def vision_callback_builds_video_parts(callback_context: CallbackContext, llm_re
     video = callback_context.state["selected_video"]
     
     if video['url'] is None or video['url'] == "":
-         llm_request.contents = [types.Content(role="user", parts=types.Part(text=f"No relevant video found for: {user_query} reply to the user properly\n"))]
+         llm_request.contents = [types.Content(role="user", parts=types.Part(text=f"No relevant video found for the user query reply to the user properly\n"))]
          return None
 
     user_query = callback_context.state["user_query"]
