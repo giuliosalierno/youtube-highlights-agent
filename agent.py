@@ -5,6 +5,21 @@ from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 import google.auth
 import os
+from pydantic import BaseModel, HttpUrl
+from typing import List
+
+class VideoItem(BaseModel):
+    """Represents a single video entry."""
+    title: str
+    url: HttpUrl  # Validates that the string is a valid HTTP/S URL
+    timecode: str
+    explanation: str
+    visual_confidence: int
+
+class VideoData(BaseModel):
+    """Represents the main JSON structure containing a list of videos."""
+    videos: List[VideoItem]
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -26,6 +41,7 @@ multimodal_agent = LlmAgent(
      model = 'gemini-2.5-pro',
      name = 'multimodal_agent',
      description="You are an helpful video analysis assistant to help identify key moments in a video on YouTube based on visual content analysis",
+     output_schema=VideoData,
      instruction=multimodal_agent_prompt,
 )
 
