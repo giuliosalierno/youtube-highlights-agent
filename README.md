@@ -56,7 +56,7 @@ The agent uses a sequential architecture, where each agent in the chain performs
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/youtube-highlights-agent.git
+    git clone https://github.com/giulio-saliernoyoutube-highlights-agent.git
     cd youtube-highlights-agent
     ```
 
@@ -66,23 +66,18 @@ The agent uses a sequential architecture, where each agent in the chain performs
         YOUTUBE_API_KEY=your_api_key_here
         ```
     *   You can obtain a YouTube API key from the [Google Cloud Console](https://console.cloud.google.com/apis/credentials):
-    1.  Go to the [Google Cloud Console](https://console.cloud.google.com/).
-    2.  Create a new project or select an existing one.
-    3.  In the navigation menu, go to **APIs & Services > Library**.
-    4.  Search for "YouTube Data API v3" and enable it for your project.
-    5.  In the navigation menu, go to **APIs & Services > Credentials**.
-    6.  Click on **Create Credentials** and select **API key**.
-    7.  Copy the generated API key and paste it into your `.env` file.
+    * 1.  Go to the [Google Cloud Console](https://console.cloud.google.com/).
+    * 2.  Create a new project or select an existing one.
+    * 3.  In the navigation menu, go to **APIs & Services > Library**.
+    * 4.  Search for "YouTube Data API v3" and enable it for your project.
+    * 5.  In the navigation menu, go to **APIs & Services > Credentials**.
+    * 6.  Click on **Create Credentials** and select **API key**.
+    * 7.  Copy the generated API key and paste it into your `.env` file.
     > **Important:** Keep your API key secret and do not share it with anyone.
 
 3.  **Install dependencies:**
     ```bash
     make install
-    ```
-
-4.  **Run the agent:**
-    ```bash
-    make run
     ```
 
 ## Running the Agent with ADK
