@@ -1,5 +1,5 @@
 from google.adk.agents import SequentialAgent, LlmAgent
-from .tools import search_youtube
+from .tools import search_youtube,convert_mmss_to_seconds
 from .prompt import youtube_search_agent_prompt, multimodal_agent_prompt, rank_agent_prompt
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
@@ -14,24 +14,18 @@ os.environ.setdefault("GOOGLE_CLOUD_LOCATION", "global")
 os.environ.setdefault("GOOGLE_GENAI_USE_VERTEXAI", "True")
 
 
-class LLMRankedOutput(BaseModel):
-    explanation: str = Field(description="The reason why this video has been chosen as the most relevant one")
-    title: str = Field(description="The title of the top Youtube Video")
-    url: str = Field(description="The url of the top Youtube Video")
-    timecode: str = Field(description="The timecode of the top Youtube Video in the format MM:SS")
-
-
 youtube_search_agent = LlmAgent(
     model = 'gemini-2.5-flash',
     name = 'youtube_search_agent',
     instruction=youtube_search_agent_prompt,
-    description="You are an helpful video search assistant to help the user to find key moments in a video on YouTube",
+    description="You are an helpful video search assistant to help the user to find relevant YouTube videos based on the user's query",
     tools=[search_youtube]
 )
 
 multimodal_agent = LlmAgent(
      model = 'gemini-2.5-pro',
      name = 'multimodal_agent',
+     description="You are an helpful video analysis assistant to help identify key moments in a video on YouTube based on visual content analysis",
      instruction=multimodal_agent_prompt,
 )
 
@@ -39,11 +33,12 @@ rank_agent = LlmAgent(
     model='gemini-2.5-flash',
     name='rank_agent',
     instruction=rank_agent_prompt,
-    output_schema=LLMRankedOutput
+    description="You are an agent that ranks analyzed YouTube videos to find the most relevant one based on ranking",
+    tools=[convert_mmss_to_seconds]
 )
 
 root_agent = SequentialAgent(
     name="video_highlights_agent",
     sub_agents= [youtube_search_agent, multimodal_agent, rank_agent ],
-    description="Executes a sequence of agents to answer the user's question"
+    description="An agent that finds and analyzes YouTube videos to identify key moments based on user queries."
 )

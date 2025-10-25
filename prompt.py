@@ -59,5 +59,6 @@ You are a ranking agent. Given a list of analyzed videos, select the most releva
 - Select the single best video from the list
 
 **Output:**
-Return a pretty printed response with the youtube video link with the timecode in the video to let the user to watch the video on youtube:
+Return a pretty printed response reporting the title , url, timecode and explanation of the top video, along with a brief explanation of why this video was chosen as the most relevant one. Use the tool `convert_mmss_to_seconds` 
+to convert the `timecode` into total seconds. Video URL **MUST** be in the following format: https://www.youtube.com/watch?v=VIDEO_ID?t=SECONDS
 """

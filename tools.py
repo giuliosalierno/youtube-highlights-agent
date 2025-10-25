@@ -25,4 +25,8 @@ def search_youtube(query: str) -> list:
         }
         for item in response.get('items', [])
     ]
-search_youtube_tool = FunctionTool(search_youtube)
+
+
+def convert_mmss_to_seconds(mmss: str) -> int:
+    minutes, seconds = map(int, mmss.split(':'))
+    return minutes * 60 + seconds
